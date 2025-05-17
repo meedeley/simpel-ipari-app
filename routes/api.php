@@ -3,6 +3,14 @@
 use App\Http\Controllers\GetTokenController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', function () {
+    return response()->json([
+        'statusCode' => 200,
+        'message'    => 'API is running'
+    ]);
+})->name('api.home');
+
+
 Route::get('/report-types', [\App\Http\Controllers\ReportTypeController::class, 'findAllReportTypes']);
 Route::get('/report-statuses', [\App\Http\Controllers\ReportStatusController::class, 'findAllReportStatuses']);
 Route::get('/reports', [\App\Http\Controllers\ReportController::class, 'findAllReports']);
